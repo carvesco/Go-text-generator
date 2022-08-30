@@ -19,8 +19,14 @@ func Generate() string {
 	// get each char from the input and append the addres of the iamge to the grid
 
 	for _, char := range scanner.Text() {
-		ch := &gim.Grid{ImageFilePath: "../images/" + strings.ToUpper(string(char)) + ".png"}
-		grids = append(grids, ch)
+		if string(char) == " " {
+			ch := &gim.Grid{ImageFilePath: "../images/SPACE.png"}
+			grids = append(grids, ch)
+		} else {
+			ch := &gim.Grid{ImageFilePath: "../images/" + strings.ToUpper(string(char)) + ".png"}
+			grids = append(grids, ch)
+		}
+
 	}
 
 	// merge the grid
